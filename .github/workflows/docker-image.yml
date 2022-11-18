@@ -16,8 +16,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: docker login
       env:
-        DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        DOCKER_USER: bobbynguyen147
+        DOCKER_PASSWORD: Sky*team1
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     -
@@ -33,9 +33,9 @@ jobs:
           context: ./udagram-reverseproxy
           file: ./udagram-reverseproxy/Dockerfile
           push: true
-          tags: ${{secrets.DOCKER_USERNAME}}/udagram-reverseproxy:latest
-          cache-from: type=registry,ref=${{secrets.DOCKER_USERNAME}}/udagram-reverseproxy:buildcache
-          cache-to: type=registry,ref=${{secrets.DOCKER_USERNAME}}/udagram-reverseproxy:buildcache,mode=max
+          tags: bobbynguyen147/udagram-reverseproxy:latest
+          cache-from: type=registry,ref=bobbynguyen147/udagram-reverseproxy:buildcache
+          cache-to: type=registry,ref=bobbynguyen147/udagram-reverseproxy:buildcache,mode=max
     -
         name: Build and push
         uses: docker/build-push-action@v3
@@ -43,9 +43,9 @@ jobs:
           context: ./udagram-frontend
           file: ./udagram-frontend/Dockerfile
           push: true
-          tags: ${{secrets.DOCKER_USERNAME}}/udagram-frontend:v1
-          cache-from: type=registry,ref=${{secrets.DOCKER_USERNAME}}/udagram-frontend:buildcache
-          cache-to: type=registry,ref=${{secrets.DOCKER_USERNAME}}/udagram-frontend:buildcache,mode=max
+          tags: bobbynguyen147/udagram-frontend:v1
+          cache-from: type=registry,ref=bobbynguyen147/udagram-frontend:buildcache
+          cache-to: type=registry,ref=bobbynguyen147/udagram-frontend:buildcache,mode=max
     -
         name: Build and push
         uses: docker/build-push-action@v3
@@ -53,9 +53,9 @@ jobs:
           context: ./udagram-api-feed
           file: ./udagram-api-feed/Dockerfile
           push: true
-          tags: ${{secrets.DOCKER_USERNAME}}/udagram-api-feed:latest
-          cache-from: type=registry,ref=${{secrets.DOCKER_USERNAME}}/udagram-api-feed:buildcache
-          cache-to: type=registry,ref=${{secrets.DOCKER_USERNAME}}/udagram-api-feed:buildcache,mode=max
+          tags: bobbynguyen147/udagram-api-feed:latest
+          cache-from: type=registry,ref=bobbynguyen147/udagram-api-feed:buildcache
+          cache-to: type=registry,ref=bobbynguyen147/udagram-api-feed:buildcache,mode=max
     -
         name: Build and push
         uses: docker/build-push-action@v3
@@ -63,6 +63,6 @@ jobs:
           context: ./udagram-api-user
           file: ./udagram-api-user/Dockerfile
           push: true
-          tags: ${{secrets.DOCKER_USERNAME}}/udagram-api-user:latest
-          cache-from: type=registry,ref=${{secrets.DOCKER_USERNAME}}/udagram-api-user:buildcache
-          cache-to: type=registry,ref=${{secrets.DOCKER_USERNAME}}/udagram-api-user:buildcache,mode=max
+          tags: bobbynguyen147/udagram-api-user:latest
+          cache-from: type=registry,ref=bobbynguyen147/udagram-api-user:buildcache
+          cache-to: type=registry,ref=bobbynguyen147/udagram-api-user:buildcache,mode=max
