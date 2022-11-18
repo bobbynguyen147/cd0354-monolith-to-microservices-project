@@ -17,7 +17,7 @@ jobs:
     - name: docker login
       env:
         DOCKER_USER: bobbynguyen147
-        DOCKER_PASSWORD: Sky*team1
+        DOCKER_PASSWORD: kobaogio1
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     -
